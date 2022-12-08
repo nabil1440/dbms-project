@@ -143,7 +143,7 @@ app.get('/players/:id', async (req, res) => {
 
   connection.query(
     runQuery(
-      `SELECT players.id as id, players.name as name, goal_scored as goals, teams.name as team FROM players LEFT JOIN teams ON players.team_id=teams.id HAVING id=${id} LIMIT 1;`
+      `SELECT players.id as id, players.name as name, goal_scored as goals, teams.name as team, teams.id as team_id FROM players LEFT JOIN teams ON players.team_id=teams.id HAVING id=${id} LIMIT 1;`
     ),
     async (err, results, fields) => {
       if (err) {
